@@ -1,9 +1,11 @@
-function solution(A, B) {
-  let sum = 0;
-  let ASort = A.sort((a, b) => a - b);
-  let BReverse = B.sort((a, b) => b - a);
-  for (i = 0; i < A.length; i++) {
-    sum += ASort[i] * BReverse[i];
+function solution(n) {
+  let prevNum = 0;
+  let num = 1;
+
+  for (i = 1; i < n; i++) {
+    let numBefore = prevNum % 1234567;
+    prevNum = num % 1234567;
+    num = (num % 1234567) + numBefore;
   }
-  return sum;
+  return num % 1234567;
 }
